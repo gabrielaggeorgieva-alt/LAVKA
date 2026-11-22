@@ -1,0 +1,53 @@
+using System;
+using System.Diagnostics;
+
+class Program
+{
+    static void Main()
+    {
+        decimal total = 0;
+
+        while (true)
+        {
+            Console.WriteLine("\n=== ЛАВКА - САМООБСЛУЖВАНЕ ===");
+            Console.WriteLine("1. Хляб - 1.50 лв.");
+            Console.WriteLine("2. Мляко - 2.20 лв.");
+            Console.WriteLine("3. Шоколад - 2.50 лв.");
+            Console.WriteLine("4. Плати");
+            Console.Write("Избери: ");
+
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 4)
+                break;
+
+            if (choice == 1)
+                Process.Start("https://en.wikipedia.org/wiki/Bread");
+
+            if (choice == 2)
+                Process.Start("https://en.wikipedia.org/wiki/Milk");
+
+            if (choice == 3)
+                Process.Start("https://en.wikipedia.org/wiki/Chocolate");
+
+            Console.Write("Количество: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            decimal price = choice == 1 ? 1.50m :
+                            choice == 2 ? 2.20m : 2.50m;
+
+            total += price * quantity;
+
+            Console.WriteLine("Добавено! Общо: " + total + " лв.");
+        }
+
+        Console.WriteLine("\nСума: " + total + " лв.");
+        Console.Write("Платено: ");
+
+        decimal money = decimal.Parse(Console.ReadLine());
+
+        Console.WriteLine("Ресто: " + (money - total) + " лв.");
+        Console.WriteLine("Благодарим!");
+    }
+}
+        
